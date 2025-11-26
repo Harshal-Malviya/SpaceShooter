@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Ship</title>
+    <link rel="stylesheet" href="css/customize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="background-music" src="assets/audio/background-music.mp3" loop></audio>
+    <button id="music-toggle">Unmute 🔇</button>
+    <script src="js/music.js"></script>
+
+    <canvas id="starBackground"></canvas>
+
+    <div class="container">
+        <h1>Choose Your Ship</h1>
+        <div class="ship-options">
+            <div class="ship-card" data-ship="red">
+                <div class="ship-preview red"></div>
+                <p>Red Falcon</p>
+            </div>
+            <div class="ship-card active" data-ship="blue">
+                <div class="ship-preview blue"></div>
+                <p>Blue Comet</p>
+            </div>
+            <div class="ship-card" data-ship="green">
+                <div class="ship-preview green"></div>
+                <p>Green Stinger</p>
+            </div>
+        </div>
+        <button id="startGameBtn">Start Game</button>
+    </div>
+
+    <script src="js/backgroundStars.js"></script>
+
+    <script>
+        const cards = document.querySelectorAll('.ship-card');
+        let selectedShip = 'blue';
+
+        // Logic for selecting a ship
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                cards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+                selectedShip = card.getAttribute('data-ship');
+            });
+        });
+    
+
+    
+        function startGame() {
+            localStorage.setItem('selectedShip', selectedShip);
+            window.location.href = 'game.html'; 
+        }
+
+      
+        document.getElementById('startGameBtn').addEventListener('click', startGame);
+
+        
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault(); 
+                startGame();
+            }
+        });
+    </script>
+</body>
+</html>

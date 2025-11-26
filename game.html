@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Shooter Game</title>
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="starBackground"></canvas>
+
+    <div id="gameContainer">
+        <div id="explosionEffect"></div>
+        <canvas id="gameCanvas"></canvas>
+        <div id="scoreBoard">
+            <span id="playerNameDisplay"></span>
+            <span id="score">Score: 0</span>
+            <span id="highScore">High Score: 0</span>
+            <span id="lives">Lives: 3</span>
+        </div>       
+        <div id="gameOver">
+            <h1>GAME OVER</h1>
+            <p>Your Score: <span id="finalScore">0</span></p>
+            <p id="finalHighScoreMessage"></p>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+
+    <audio id="background-music" src="assets/audio/background-music.mp3" loop></audio>
+    <button id="music-toggle">Unmute 🔇</button>
+    <script src="js/music.js"></script>
+    <script src="js/backgroundStars.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

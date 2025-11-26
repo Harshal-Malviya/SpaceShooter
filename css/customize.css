@@ -1,0 +1,135 @@
+body {
+    background: black;
+    color: white;
+    font-family: 'Orbitron', sans-serif; /* Using the cool game font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Hide scrollbars */
+}
+
+#starBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: -1; /* Place it behind the content */
+    opacity: 1;
+}
+
+.container {
+    text-align: center;
+    z-index: 1; /* Ensure content is above the canvas */
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+}
+
+.ship-options {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.ship-card {
+    border: 3px solid transparent;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.ship-card:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.ship-card.active {
+    border-color: lime;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px lime;
+}
+
+.ship-card p {
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+.ship-preview {
+    width: 100px;  /* Increased size for better view */
+    height: 100px; /* Increased size for better view */
+    margin: 0 auto 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* --- UPDATED RULES --- */
+/* Point these to your actual spaceship images */
+
+.ship-preview.red {
+    background-image: url('../assets/images/red-Falcon.png');
+}
+
+/* Assuming spaceship.png is the original blue ship */
+.ship-preview.blue {
+    background-image: url('../assets/images/spaceship.png');
+}
+
+.ship-preview.green {
+    background-image: url('../assets/images/green-stinger.png');
+}
+
+#startGameBtn { /* Renamed from generic 'button' for clarity */
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-family: 'Orbitron', sans-serif;
+    background: lime;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+#startGameBtn:hover {
+    background: #85e82b;
+    box-shadow: 0 0 15px #85e82b;
+    transform: scale(1.05);
+}
+
+/* --- Music Toggle Button --- */
+#music-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    padding: 10px 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 2px solid cyan;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#music-toggle:hover {
+    background-color: cyan;
+    color: black;
+    box-shadow: 0 0 10px cyan;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Briefing</title>
+    <link rel="stylesheet" href="css/styles.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body class="page-instructions"> 
+    <canvas id="spaceBackground"></canvas>
+
+    <div id="content">
+        <h1 class="instructions-title">Mission Briefing</h1>
+        
+        <p id="playerNameGreeting" class="greeting"></p>
+        
+        <div class="instructions-list">
+            <section class="instruction-section">
+                <h2><span class="icon">🚀</span> Pilot Controls</h2>
+                <p>Master your vessel using the <strong>ARROW KEYS ( ↑, ↓, ←, → )</strong> to navigate through the perilous void. Swift movement is key to evading enemy fire and positioning for attack.</p>
+            </section>
+
+            <section class="instruction-section">
+                <h2><span class="icon">💥</span> Weapon Systems</h2>
+                <p>Press the <strong>SPACEBAR</strong> to unleash your primary plasma cannons. Aim true, Commander! Your precision is vital for eliminating enemy threats.</p>
+            </section>
+            
+            <section class="instruction-section">
+                <h2><span class="icon">🛰️</span> Tactical Drone Unit</h2>
+                <p>Press the <strong>'P' KEY</strong> to deploy or recall your autonomous combat drone. This loyal companion will provide invaluable additional suppressive fire, assisting you in battle.</p>
+            </section>
+
+            <section class="instruction-section">
+                <h2><span class="icon">⚡</span> Power-Ups & Enhancements</h2>
+                <p>Scavenge vital upgrades from defeated enemy vessels. These temporary enhancements can decisively turn the tide of battle:</p>
+                <ul>
+                    <li><strong><span style="color: orange;">Orange Crate (Rapid Fire):</span></strong> Drastically increases your ship's rate of fire, transforming your plasma cannons into a continuous beam.</li>
+                    <li><strong><span style="color: lightblue;">Blue Crate (Shield Matrix):</span></strong> Activates a temporary energy shield around your vessel, rendering you invulnerable to enemy attacks for a short duration.</li>
+                    <li><strong><span style="color: green;">Green Crate (Life Support):</span></strong> Repairs critical systems and grants you an additional life, crucial for extended missions.</li>
+                    <li><strong><span style="color: purple;">Purple Crate (Annihilation Bomb):</span></strong> Unleashes a devastating area-of-effect blast that obliterates all enemy ships currently on screen.</li>
+                    <li><strong><span style="color: magenta;">Magenta Crate (Laser Beam):</span></strong> Equips your ship with a powerful, continuous laser that slices through multiple enemies for a limited time.</li>
+                </ul>
+            </section>
+
+            <section class="instruction-section">
+                <h2><span class="icon">🏅</span> Scoring & Survival</h2>
+                <p>Destroying enemies earns points. Survive longer and achieve higher scores to prove your prowess as a top pilot. Don't forget to aim for new high scores!</p>
+            </section>
+        </div>
+
+        <a href="customize.html" class="button">Proceed to Hangar</a>
+    </div>
+
+    <script src="js/spaceBackground.js"></script>
+    
+    <script>
+        // Retrieve player name from localStorage and display it
+        const playerName = localStorage.getItem('playerName') || 'Pilot';
+        const greetingElement = document.getElementById('playerNameGreeting');
+        greetingElement.innerHTML = `Greetings, <strong>${playerName}</strong>! Your mission is critical. Absorb this briefing.`;
+    </script>
+</body>
+</html>

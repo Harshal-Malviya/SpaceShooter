@@ -1,0 +1,262 @@
+/* styles.css */
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Orbitron', sans-serif; /* USE THE NEW FONT */
+    text-align: center;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars from the canvas */
+}
+
+/* New canvas style */
+#spaceBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* This is key to placing it behind other content */
+}
+
+/* Wrap your content to layer it above the canvas */
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative; /* Ensures it respects z-index */
+    z-index: 1;
+}
+
+/* Your existing styles for h1, p, input, and button remain the same */
+h1 {
+    font-size: 4em;
+    color: cyan;
+    text-shadow: 2px 2px 8px blue;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+.input-container {
+    margin-bottom: 20px;
+}
+.input-container input {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 2px solid white;
+    background: #222;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+.button {
+    --main-color: rgb(46, 213, 115);
+    --main-bg-color: rgba(46, 213, 116, 0.36);
+    --pattern-color: rgba(46, 213, 116, 0.073);
+    filter: hue-rotate(0deg);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    background: radial-gradient(
+        circle,
+        var(--main-bg-color) 0%,
+        rgba(0, 0, 0, 0) 95%
+      ),
+      linear-gradient(var(--pattern-color) 1px, transparent 1px),
+      linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
+    background-size: cover, 15px 15px, 15px 15px;
+    background-position: center center, center center, center center;
+    border-image: radial-gradient(
+        circle,
+        var(--main-color) 0%,
+        rgba(0, 0, 0, 0) 100%
+      ) 1;
+    border-width: 1px 0 1px 0;
+    color: var(--main-color);
+    padding: 1rem 3rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: background-size 0.2s ease-in-out;
+}
+.button:hover {
+    background-size: cover, 10px 10px, 10px 10px;
+}
+.button:active {
+    filter: hue-rotate(250deg);
+}
+
+/* styles.css */
+
+/* Add a floating animation to the main content container */
+#content {
+    /* ... keep your existing #content styles ... */
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Make the main title pulse with a neon glow */
+h1 {
+    /* ... keep your existing h1 styles ... */
+    animation: pulse-glow 2s infinite alternate;
+}
+
+/* Keyframe animations (add these at the bottom of the file) */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-glow {
+    from {
+        text-shadow: 2px 2px 8px blue, 0 0 10px cyan, 0 0 20px cyan;
+    }
+    to {
+        text-shadow: 2px 2px 10px blue, 0 0 20px cyan, 0 0 35px cyan;
+    }
+}
+
+
+/* styles.css */
+
+/* Wrap your content to layer it above the canvas */
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative; /* Ensures it respects z-index */
+    z-index: 1;
+
+    /* --- ADD/CHANGE THESE STYLES --- */
+    background: rgba(0, 15, 30, 0.75); /* Dark blue semi-transparent panel */
+    padding: 2rem 3rem;
+    border: 1px solid rgba(0, 255, 255, 0.5); /* Cyan border */
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); /* Faint cyan glow */
+    
+    /* This connects to the float animation from step 2 */
+    animation: float 6s ease-in-out infinite;
+}
+
+/* --- ADD THIS NEW RULE --- */
+/* Add a glow effect when the input box is selected */
+.input-container input:focus {
+    outline: none; /* Removes the default browser outline */
+    border-color: cyan;
+    box-shadow: 0 0 15px cyan;
+}
+
+/* --- Music Toggle Button (Updated) --- */
+#music-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    padding: 10px 15px;
+    font-family: 'Orbitron', sans-serif; /* Ensures the correct font */
+    font-size: 16px; /* Sets a consistent font size */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 2px solid cyan;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#music-toggle:hover {
+    background-color: cyan;
+    color: black;
+    box-shadow: 0 0 10px cyan;
+}
+/* --- UPDATED INSTRUCTION PAGE STYLES (replace previous block in styles.css) --- */
+
+.page-instructions {
+    height: auto;
+    overflow-y: auto;
+}
+
+/* Style the content panel ONLY on the instructions page */
+.page-instructions #content {
+    height: auto; /* Allow the panel to grow with the content */
+    width: 90%;
+    max-width: 1200px; /* Wider container */
+    padding: 2.5rem 5rem; /* More padding for the larger size */
+    margin: 5vh auto; /* Add space at the top/bottom and center horizontally */
+    animation: float 6s ease-in-out infinite;
+}
+
+.page-instructions #content .instructions-title {
+    font-size: 3.5em; 
+    margin-bottom: 30px;
+}
+
+.page-instructions #content .greeting {
+    font-size: 1.6em;
+    margin-bottom: 40px;
+}
+
+.page-instructions #content .instructions-list {
+    text-align: left;
+    width: 100%;
+}
+
+.page-instructions .instruction-section {
+    margin-bottom: 35px;
+}
+
+.page-instructions #content .instructions-list h2 {
+    font-size: 2em;
+    color: cyan;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.page-instructions #content .instructions-list p {
+    font-size: 1.3em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.page-instructions #content .instructions-list ul {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.page-instructions #content .instructions-list ul li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    position: relative;
+    padding-left: 25px;
+}
+
+.page-instructions #content .instructions-list ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: lime;
+    font-size: 1.3em;
+    line-height: 1;
+}
+
+.page-instructions #content .instructions-list .icon {
+    margin-right: 15px;
+    font-size: 1.2em;
+    color: lime;
+    text-shadow: 0 0 8px lime;
+}
+
+.page-instructions #content .button {
+    margin-top: 40px;
+}

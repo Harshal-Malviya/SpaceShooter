@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#gameContainer {
+    position: relative;
+    width: 30vw; /* Kept at 30% of viewport width */
+    margin: 0 auto; /* Center the container */
+    height: 100vh;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    background: black;
+    display: block;
+    width: 100%; /* Canvas fills the reduced container */
+    height: 100%;
+}
+
+#scoreBoard {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    display: flex;
+    gap: 20px;
+}
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gameOver h1 {
+    font-size: 40px;
+    color: red;
+}
+
+#gameOver button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: lime;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#explosionEffect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,0,150,0.6) 0%, rgba(0,0,0,0.8) 70%);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+    z-index: 5;
+}
+
+.explode {
+    animation: explosionFlash 0.6s ease-out forwards;
+}
+
+@keyframes explosionFlash {
+    0% {
+        opacity: 0.9;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+.explosionText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    font-size: 32px;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 2px 2px 8px red;
+    animation: popUp 1.5s ease-out forwards;
+    z-index: 10;
+}
+
+@keyframes popUp {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    30% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+    70% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+}
+/* Add these styles to your existing game.css */
+
+#starBackground {
+    position: fixed; /* Position relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;      /* Place it behind all other content */
+    display: block;
+}
+
+body {
+    background: black; /* This remains as the fallback color */
+    overflow: hidden;
+}
+
+/* --- Music Toggle Button (Updated) --- */
+#music-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    padding: 10px 15px;
+    font-family: 'Orbitron', sans-serif; /* Ensures the correct font */
+    font-size: 16px; /* Sets a consistent font size */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 2px solid cyan;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#music-toggle:hover {
+    background-color: cyan;
+    color: black;
+    box-shadow: 0 0 10px cyan;
+}
